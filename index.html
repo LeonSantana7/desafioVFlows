@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Fornecedor/Produto</title>
+    <link rel="stylesheet" type="text/css" href="./style-guide/css/fluig-style-guide.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.min.js"></script>
+    <script src="./style-guide/js/fluig-style-guide.min.js"></script>
+    <script src="./portal/resources/js/jquery/script.js" defer></script>
+    <script src="./portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="./style-guide/css/style.css">
+</head>
+</head>
+<body>
+    <div class="fluig-style-guide">
+        <h3>CADASTRO FORNECEDOR/PRODUTO</h3>
+        <!-- Primeira tabela -->
+        <table>
+            <tr>
+                <th>
+                    <h4>Dados do Fornecedor</h4>
+                </th>
+            </tr>
+            <tr>
+                <td>Razão Social</td>
+                <td><input type="text" name="razaoSocial" id="razaoSocial" required></td>
+            </tr>
+            <tr>
+                <td>CNPJ</td>
+                <td><input type="text" name="cnpj" id="cnpj" required></td>
+            </tr>
+            <tr>
+                <td>Nome da fantasia</td>
+                <td><input type="text" name="fantasia" id="fantasia" required></td>
+            </tr>
+            <tr>
+                <td>Inscrição Estadual</td>
+                <td><input type="text" name="inscricaoEs" id="inscricaoEs"></td>
+            </tr>
+            <tr>
+                <td>CEP</td>
+                <td><input type="text" name="cep" id="cep" required></td>
+            </tr>
+            <tr>
+                <td>Inscrição Municipal</td>
+                <td><input type="text" name="inscricaoMu" id="inscricaoMu"></td>
+            </tr>
+            <tr>
+                <td>Endereço</td>
+                <td><input type="text" name="endereco" id="endereco" required></td>
+            </tr>
+            <tr>
+                <td>Número</td>
+                <td><input type="text" name="numero" id="numero"></td>
+            </tr>
+            <tr>
+                <td>Complemento</td>
+                <td><input type="text" name="complemento" id="complemento"></td>
+            </tr>
+            <tr>
+                <td>Bairro</td>
+                <td><input type="text" name="bairro" id="bairro"></td>
+            </tr>
+            <tr>
+                <td>Municipio</td>
+                <td><input type="text" name="municipio" id="municipio"></td>
+            </tr>
+            <tr>
+                <td>Estado</td>
+                <td><input type="text" name="estado" id="estado"></td>
+            </tr>
+            <tr>
+                <td>Nome da Pessoa de Contato</td>
+                <td><input type="text" name="pessoaContato" id="pessoaContato"></td>
+            </tr>
+            <tr>
+                <td>Telefone</td>
+                <td><input type="text" name="telefone" id="telefone"></td>
+            </tr>
+            <tr>
+                <td>E-mail</td>
+                <td><input type="text" name="email" id="email"></td>
+            </tr>
+        </table>
+    </div>
+
+         <!-- Segunda tabela (Produtos) -->
+         <table id="tabelaProdutos">
+            <tr>
+                <th>Produtos</th>
+            </tr>
+            <!-- Produto 1 -->
+            <tr class="produto">
+                <td>Produto - 1</td>
+                <td><input type="text" class="produto-nome" name="produto1" id="produto1" required></td>
+                <td>UND. Medida</td>
+                <td><input type="number" class="produto-und-medida" name="undMedida1" id="undMedida1" required></td>
+                <td>QDTDE. em Estoque</td>
+                <td><input type="text" class="produto-estoque" name="estoque1" id="estoque1" required></td>
+                <td>Valor Unitário</td>
+                <td><input type="text" class="produto-valor" name="valor1" id="valor1" required></td>
+                <td><button type="button" class="calcular-valor-total">Calcular Valor Total</button></td>
+                <td><button type="button" class="remover-linha">Remover Produto</button></td>
+            </tr>
+            <!-- Produto 2 -->
+            <tr class="produto">
+                <td>Produto - 2</td>
+                <td><input type="text" class="produto-nome" name="produto2" id="produto2" required></td>
+                <td>UND. Medida</td>
+                <td><input type="number" class="produto-und-medida" name="undMedida2" id="undMedida2" required></td>
+                <td>QDTDE. em Estoque</td>
+                <td><input type="text" class="produto-estoque" name="estoque2" id="estoque2" required></td>
+                <td>Valor Unitário</td>
+                <td><input type="text" class="produto-valor" name="valor2" id="valor2" required></td>
+                <td><button type="button" class="calcular-valor-total">Calcular Valor Total</button></td>
+                <td><button type="button" class="remover-linha">Remover Produto</button></td>
+            </tr>
+        </table>
+
+        <!-- Botões -->
+        <button type="button" class="adicionar-produto">Adicionar Produto</button>
+        <button type="button" class="adicionar-anexo">Adicionar Anexo</button>
+        <button type="button" class="enviar-dados">Salvar Fornecedor</button>
+        
+        <!-- Terceira tabela (Anexos) -->
+        <table id="tabelaAnexos">
+            <tr>
+                <th>Anexos</th>
+            </tr>
+            <tr class="anexo">
+                <td>Documento - 1</td>
+                <td><input type="file" name="documento1" id="documento1" required></td>
+                <td><button type="button" onclick="excluirDocumento(1)">Excluir</button></td>
+                <td><button type="button" onclick="visualizarDocumento(1)">Visualizar</button></td>
+            </tr>
+            <tr class="anexo">
+                <td>Documento - 2</td>
+                <td><input type="file" name="documento2" id="documento2" required></td>
+                <td><button type="button" onclick="excluirDocumento(2)">Excluir</button></td>
+                <td><button type="button" onclick="visualizarDocumento(2)">Visualizar</button></td>
+            </tr>
+        </table>
+    </div>
+
+
+
+</body>
+</html>
