@@ -1,17 +1,15 @@
-/* Adicione estilos personalizados aqui */
-
 /* Estilos para o corpo da página */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    color: #000000; /* Texto mais escuro */
+    color: #333; /* Letra mais escura */
 }
 
 /* Estilos para a barra de título */
 h3 {
     color: #0360b8; /* Cor principal do Fluig */
-    border-bottom: 2px solid #0263be;
+    border-bottom: 2px solid #87bfff; /* Azul mais claro */
     padding-bottom: 10px;
 }
 
@@ -22,7 +20,7 @@ table {
     margin-bottom: 20px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #000000; /* Texto mais escuro */
+    color: #333; /* Letra mais escura */
 }
 
 th, td {
@@ -31,7 +29,7 @@ th, td {
 }
 
 th {
-    background-color: #004a8f;
+    background-color: #0068c2; /* Azul mais claro */
     color: #fff;
 }
 
@@ -46,14 +44,14 @@ input[type="text"], input[type="number"], input[type="file"] {
 /* Estilos para botões */
 button {
     padding: 10px;
-    background-color: #004a8f;
+    background-color: #0068c2; /* Azul mais claro */
     color: #fff;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #003366;
+    background-color: #004f9e; /* Azul mais escuro */
 }
 
 /* Estilos para o formulário */
@@ -63,4 +61,39 @@ button:hover {
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* Adicionado para posicionar o footer relativo a este elemento */
+}
+
+/* Estilos para o footer */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 2px solid #0068c2; /* Azul mais claro */
+    padding-top: 10px;
+}
+
+/* Estilos para o botão no footer */
+footer button {
+    padding: 10px;
+    background-color: #0068c2; /* Azul mais claro */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+footer button:hover {
+    background-color: #004f9e; /* Azul mais escuro */
+}
+
+/* Adicionar media query para telas menores que 768 pixels */
+@media only screen and (max-width: 768px) {
+    /* Ajuste o tamanho da fonte ou outros estilos conforme necessário */
+    body {
+        font-size: 14px;
+    }
+
+    .fluig-style-guide {
+        max-width: 600px;
+    }
 }

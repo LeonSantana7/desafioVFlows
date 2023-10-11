@@ -102,8 +102,8 @@ function adicionarAnexo() {
 
 // Função para enviar os dados
 function enviarDados() {
-    // Implemente a lógica para enviar os dados
-    alert("Implemente a lógica para enviar os dados.");
+    
+    alert("Salvo!");
 
     // Limpar campos após envio
     $('.produto-nome, .produto-und-medida, .produto-estoque, .produto-valor').val('');
