@@ -67,9 +67,14 @@ function calcularValorTotal(row) {
     var valorUnitario = parseFloat(row.find('.produto-valor').val());
     var total = quantidade * valorUnitario;
 
-
+    // Atualiza o valor total na tabela
     row.find('.valor-total').text(total.toFixed(2));
 }
+
+$(document).on('click', '.calcular-valor-total', function () {
+    var row = $(this).closest('tr');
+    calcularValorTotal(row);
+});
 
 // Função para remover a linha do produto
 function removerProduto(row) {
@@ -77,12 +82,13 @@ function removerProduto(row) {
 }
 
 // Adiciona evento de clique para calcular o valor total ao clicar no botão
-var calcularBotoes = document.querySelectorAll('.calcular-valor-total');
-calcularBotoes.forEach(function (botao) {
+var botoesCalcularValorTotal = document.querySelectorAll('.calcular-valor-total');
+botoesCalcularValorTotal.forEach(function (botao) {
     botao.addEventListener('click', function () {
         calcularValorTotal($(this).closest('.produto'));
     });
 });
+
 
 function removerLinha(index) {
     $('#tabelaProdutos tr').eq(index).remove();
