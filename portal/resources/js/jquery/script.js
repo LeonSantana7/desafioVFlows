@@ -126,10 +126,6 @@ function removerProduto(element) {
 }
 
 
-$('.adicionar-produto').on('click', function () {
-    adicionarProduto();
-});
-
 // Evento de clique para calcular o valor total ao clicar no botão
 $('#tabelaProdutos').on('click', '.calcular-valor-total', function () {
     calcularValorTotal($(this).closest('.produto'));
@@ -184,6 +180,4 @@ function enviarDados() {
      }
  }
 
- $('.adicionar-anexo').on('click', function () {
-     adicionarAnexo();
- });
+

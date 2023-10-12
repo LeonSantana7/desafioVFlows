@@ -1,17 +1,18 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    color: #333; 
+    color: #333;
 }
 
-
-h3 {
-    color: #0360b8; 
-    border-bottom: 2px solid #87bfff; 
-    padding-bottom: 10px;
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
-
 
 table {
     width: 100%;
@@ -19,40 +20,41 @@ table {
     margin-bottom: 20px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #333; 
+    color: #333;
+    border: 1px solid #ccc;
 }
 
 th, td {
-    padding: 10px;
+    padding: 12px;
     text-align: left;
 }
 
 th {
-    background-color: #0068c2; 
+    background-color: #0068c2;
     color: #fff;
 }
 
-
-input[type="text"], input[type="number"], input[type="file"] {
+input[type="text"],
+input[type="number"],
+input[type="file"],
+button {
     width: 100%;
-    padding: 8px;
+    padding: 12px;
     margin-bottom: 10px;
     box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-
 button {
-    padding: 10px;
-    background-color: #0068c2; 
+    background-color: #0068c2;
     color: #fff;
-    border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #004f9e; 
+    background-color: #004f9e;
 }
-
 
 .fluig-style-guide {
     max-width: 800px;
@@ -60,53 +62,49 @@ button:hover {
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative; 
+    position: relative;
 }
 
 button.adicionar-produto {
-    padding: 10px;
-    background-color: #0068c2; 
+    display: block;
+    margin: 20px auto;
+    padding: 12px;
+    background-color: #0068c2;
     color: #fff;
     border: none;
     cursor: pointer;
-    display: block;
-    margin: 0 auto; 
 }
 
 button.adicionar-produto:hover {
-    background-color: #004f9e; 
+    background-color: #004f9e;
 }
-
-
 
 footer {
     text-align: center;
     margin-top: 20px;
-    border-top: 2px solid #0068c2; 
+    border-top: 2px solid #0068c2;
     padding-top: 10px;
 }
 
-
 footer button {
-    padding: 10px;
-    background-color: #0068c2; 
+    padding: 12px;
+    background-color: #0068c2;
     color: #fff;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 footer button:hover {
-    background-color: #004f9e; 
+    background-color: #004f9e;
 }
-
 
 @media only screen and (max-width: 768px) {
     body {
         font-size: 14px;
     }
 
-    .fluig-style-guide {
+    .container {
         max-width: 600px;
     }
 }
