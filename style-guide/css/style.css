@@ -1,26 +1,25 @@
-/* Estilos para o corpo da página */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    color: #333; /* Letra mais escura */
+    color: #333; 
 }
 
-/* Estilos para a barra de título */
+
 h3 {
-    color: #0360b8; /* Cor principal do Fluig */
-    border-bottom: 2px solid #87bfff; /* Azul mais claro */
+    color: #0360b8; 
+    border-bottom: 2px solid #87bfff; 
     padding-bottom: 10px;
 }
 
-/* Estilos para as tabelas */
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #333; /* Letra mais escura */
+    color: #333; 
 }
 
 th, td {
@@ -29,11 +28,11 @@ th, td {
 }
 
 th {
-    background-color: #0068c2; /* Azul mais claro */
+    background-color: #0068c2; 
     color: #fff;
 }
 
-/* Estilos para inputs de texto */
+
 input[type="text"], input[type="number"], input[type="file"] {
     width: 100%;
     padding: 8px;
@@ -41,41 +40,56 @@ input[type="text"], input[type="number"], input[type="file"] {
     box-sizing: border-box;
 }
 
-/* Estilos para botões */
+
 button {
     padding: 10px;
-    background-color: #0068c2; /* Azul mais claro */
+    background-color: #0068c2; 
     color: #fff;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #004f9e; /* Azul mais escuro */
+    background-color: #004f9e; 
 }
 
-/* Estilos para o formulário */
+
 .fluig-style-guide {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative; /* Adicionado para posicionar o footer relativo a este elemento */
+    position: relative; 
 }
 
-/* Estilos para o footer */
+button.adicionar-produto {
+    padding: 10px;
+    background-color: #0068c2; 
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto; 
+}
+
+button.adicionar-produto:hover {
+    background-color: #004f9e; 
+}
+
+
+
 footer {
     text-align: center;
     margin-top: 20px;
-    border-top: 2px solid #0068c2; /* Azul mais claro */
+    border-top: 2px solid #0068c2; 
     padding-top: 10px;
 }
 
-/* Estilos para o botão no footer */
+
 footer button {
     padding: 10px;
-    background-color: #0068c2; /* Azul mais claro */
+    background-color: #0068c2; 
     color: #fff;
     border: none;
     cursor: pointer;
@@ -83,12 +97,11 @@ footer button {
 }
 
 footer button:hover {
-    background-color: #004f9e; /* Azul mais escuro */
+    background-color: #004f9e; 
 }
 
-/* Adicionar media query para telas menores que 768 pixels */
+
 @media only screen and (max-width: 768px) {
-    /* Ajuste o tamanho da fonte ou outros estilos conforme necessário */
     body {
         font-size: 14px;
     }

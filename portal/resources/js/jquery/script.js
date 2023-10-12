@@ -19,39 +19,32 @@ $('#cep').blur(function () {
 })
 
 // Tabela Produto
-
 $(document).ready(function () {
 
     $('.adicionar-produto').click(function () {
-        adicionarLinha();
+        adicionarProduto();
     });
 
-   
     $(document).on('click', '.calcular-valor-total', function () {
-        var index = $(this).closest('tr').index() + 1;
-        calcularValorTotal(index);
+        var row = $(this).closest('tr');
+        calcularValorTotal(row);
     });
 
-
-    $(document).on('click', '.remover-linha', function () {
-        var index = $(this).closest('tr').index() + 1;
-        removerLinha(index);
+    $(document).on('click', '.remover-produto', function () {
+        var row = $(this).closest('tr');
+        removerProduto(row);
     });
-
 
     $('.adicionar-anexo').click(function () {
         adicionarAnexo();
     });
 
- 
     $('.enviar-dados').click(function () {
         enviarDados();
     });
 });
 
-
 function adicionarLinha() {
-
     var novaLinha = "<tr class='produto'>" +
         "<td>Novo Produto</td>" +
         "<td><input type='text' class='produto-nome' name='novoProduto' required></td>" +
@@ -62,60 +55,129 @@ function adicionarLinha() {
         "<td>Valor Unitário</td>" +
         "<td><input type='text' class='produto-valor' name='novoValor' required></td>" +
         "<td><button type='button' class='calcular-valor-total'>Calcular Valor Total</button></td>" +
-        "<td><button type='button' class='remover-linha'>Remover Produto</button></td>" +
+        "<td><button type='button' class='remover-produto'>Remover Produto</button></td>" +
         "</tr>";
 
     $('#tabelaProdutos').append(novaLinha);
 }
 
+// Função para calcular o valor total
+function calcularValorTotal(row) {
+    var quantidade = parseFloat(row.find('.produto-und-medida').val());
+    var valorUnitario = parseFloat(row.find('.produto-valor').val());
+    var total = quantidade * valorUnitario;
 
-function calcularValorTotal(index) {
 
-    var quantidade = parseFloat($('#tabelaProdutos tr').eq(index).find('.produto-und-medida').val()) || 0;
-    var valorUnitario = parseFloat($('#tabelaProdutos tr').eq(index).find('.produto-valor').val().replace(',', '.')) || 0;
-
-
-    var valorTotal = quantidade * valorUnitario;
-
-  
-    $('#tabelaProdutos tr').eq(index).find('.produto-valor-total').val('R$ ' + valorTotal.toFixed(2));
+    row.find('.valor-total').text(total.toFixed(2));
 }
 
+// Função para remover a linha do produto
+function removerProduto(row) {
+    row.remove();
+}
+
+// Adiciona evento de clique para calcular o valor total ao clicar no botão
+var calcularBotoes = document.querySelectorAll('.calcular-valor-total');
+calcularBotoes.forEach(function (botao) {
+    botao.addEventListener('click', function () {
+        calcularValorTotal($(this).closest('.produto'));
+    });
+});
 
 function removerLinha(index) {
-   
     $('#tabelaProdutos tr').eq(index).remove();
 }
 
-// Função para adicionar um anexo
-function adicionarAnexo() {
-    // Criar uma nova linha na tabela de anexos
-    var novoAnexo = "<tr class='anexo'>" +
-        "<td>Novo Anexo</td>" +
-        "<td><input type='file' name='novoAnexo' required></td>" +
-        "<td><button type='button' class='remover-anexo'>Remover</button></td>" +
-        "<td><button type='button' class='visualizar-anexo'>Visualizar</button></td>" +
+var contadorProduto = 1; 
+
+// Função para adicionar um produto
+function adicionarProduto() {
+
+    var novoProduto = "<tr class='produto'>" +
+        "<td>Novo Produto</td>" +
+        "<td><input type='text' class='produto-nome' name='novoProduto" + contadorProduto + "' required></td>" +
+        "<td>UND. Medida</td>" +
+        "<td><input type='number' class='produto-und-medida' name='novoUndMedida" + contadorProduto + "' required></td>" +
+        "<td>QDTDE. em Estoque</td>" +
+        "<td><input type='text' class='produto-estoque' name='novoEstoque" + contadorProduto + "' required></td>" +
+        "<td>Valor Unitário</td>" +
+        "<td><input type='text' class='produto-valor' name='novoValor" + contadorProduto + "' required></td>" +
+        "<td class='valor-total'>0</td>" +
+        "<td><button type='button' class='calcular-valor-total'>Calcular Valor Total</button></td>" +
+        "<td><span class='remover-produto' onclick='removerProduto(this)'>🗑️</span></td>" +
         "</tr>";
 
-    $('#tabelaAnexos').append(novoAnexo);
+    $('#tabelaProdutos').append(novoProduto);
+
+
+    contadorProduto++;
+}
+
+
+// Função para remover um produto
+function removerProduto(element) {
+    $(element).closest('tr').remove();
+}
+
+
+$('.adicionar-produto').on('click', function () {
+    adicionarProduto();
+});
+
+// Evento de clique para calcular o valor total ao clicar no botão
+$('#tabelaProdutos').on('click', '.calcular-valor-total', function () {
+    calcularValorTotal($(this).closest('.produto'));
+});
+
+// Função para calcular o valor total
+function calcularValorTotal(row) {
+    var quantidade = parseFloat(row.find('.produto-und-medida').val());
+    var valorUnitario = parseFloat(row.find('.produto-valor').val());
+    var total = quantidade * valorUnitario;
+
+
+    row.find('.valor-total').text(total.toFixed(2));
 }
 
 // Função para enviar os dados
 function enviarDados() {
-    
     alert("Salvo!");
 
     // Limpar campos após envio
     $('.produto-nome, .produto-und-medida, .produto-estoque, .produto-valor').val('');
     $('input[type=file]').val('');
 }
+ 
+ var contadorDocumentos = 1;
 
-// Evento para remover um anexo
-$(document).on('click', '.remover-anexo', function () {
-    $(this).closest('tr').remove();
-});
+ // Função para adicionar um novo campo de documento
+ function adicionarAnexo() {
+     contadorDocumentos++;
 
-// Evento para visualizar um anexo (Você precisa implementar esta lógica)
-$(document).on('click', '.visualizar-anexo', function () {
-    alert("Implemente a lógica para visualizar o anexo.");
-});
+     var novaLinha = `<tr class="anexo">
+                         <td>Documento - ${contadorDocumentos}</td>
+                         <td><input type="file" name="documento${contadorDocumentos}" id="documento${contadorDocumentos}" required></td>
+                         <td><button type="button" onclick="excluirDocumento(${contadorDocumentos})">Excluir</button></td>
+                         <td><button type="button" onclick="visualizarDocumento(${contadorDocumentos})">Visualizar</button></td>
+                     </tr>`;
+
+     $('#tabelaAnexos').append(novaLinha);
+ }
+
+ // Função para excluir documento
+ function excluirDocumento(numeroDocumento) {
+   $(`#documento${numeroDocumento}`).closest('tr').remove();
+ }
+
+ // Função para visualizar documento
+ function visualizarDocumento(numeroDocumento) {
+     var input = document.getElementById(`documento${numeroDocumento}`);
+
+     if (input.files && input.files[0]) {
+         alert(`Visualizando Documento - ${numeroDocumento}`);
+     }
+ }
+
+ $('.adicionar-anexo').on('click', function () {
+     adicionarAnexo();
+ });

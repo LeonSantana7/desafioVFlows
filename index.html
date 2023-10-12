@@ -8,6 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.min.js"></script>
     <script src="./style-guide/js/fluig-style-guide.min.js"></script>
     <script src="./portal/resources/js/jquery/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="./portal/resources/js/jquery/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="./style-guide/css/style.css">
 </head>
@@ -85,40 +86,41 @@
         </table>
     </div>
 
-         <!-- Segunda tabela (Produtos) -->
-         <table id="tabelaProdutos">
-            <tr>
-                <th>Produtos</th>
-            </tr>
-            <!-- Produto 1 -->
-            <tr class="produto">
-                <td>Produto - 1</td>
-                <td><input type="text" class="produto-nome" name="produto1" id="produto1" required></td>
-                <td>UND. Medida</td>
-                <td><input type="number" class="produto-und-medida" name="undMedida1" id="undMedida1" required></td>
-                <td>QDTDE. em Estoque</td>
-                <td><input type="text" class="produto-estoque" name="estoque1" id="estoque1" required></td>
-                <td>Valor Unitário</td>
-                <td><input type="text" class="produto-valor" name="valor1" id="valor1" required></td>
-                <td><button type="button" class="calcular-valor-total">Calcular Valor Total</button></td>
-                <td><button type="button" class="remover-linha">Remover Produto</button></td>
-            </tr>
-            <!-- Produto 2 -->
-            <tr class="produto">
-                <td>Produto - 2</td>
-                <td><input type="text" class="produto-nome" name="produto2" id="produto2" required></td>
-                <td>UND. Medida</td>
-                <td><input type="number" class="produto-und-medida" name="undMedida2" id="undMedida2" required></td>
-                <td>QDTDE. em Estoque</td>
-                <td><input type="text" class="produto-estoque" name="estoque2" id="estoque2" required></td>
-                <td>Valor Unitário</td>
-                <td><input type="text" class="produto-valor" name="valor2" id="valor2" required></td>
-                <td><button type="button" class="calcular-valor-total">Calcular Valor Total</button></td>
-                <td><button type="button" class="remover-linha">Remover Produto</button></td>
-            </tr>
-        </table>
+        <!-- Segunda tabela (Produtos) -->
+<table id="tabelaProdutos">
+    <tr>
+        <th>Produtos</th>
+    </tr>
+    <!-- Produto 1 -->
+    <tr class="produto">
+        <td>Produto - 1</td>
+        <td><input type="text" class="produto-nome" name="produto1" id="produto1" required></td>
+        <td>UND. Medida</td>
+        <td><input type="number" class="produto-und-medida" name="undMedida1" id="undMedida1" required></td>
+        <td>QDTDE. em Estoque</td>
+        <td><input type="text" class="produto-estoque" name="estoque1" id="estoque1" required></td>
+        <td>Valor Unitário</td>
+        <td><input type="text" class="produto-valor" name="valor1" id="valor1" required></td>
+        <td class="valor-total">0</td>
+        <td><button type="button" class="calcular-valor-total">Calcular Valor Total</button></td>
+        <td><span class="remover-produto" onclick="removerProduto(this)">🗑️</span></td>
+    </tr>
+    <!-- Produto 2 -->
+    <tr class="produto">
+        <td>Produto - 2</td>
+        <td><input type="text" class="produto-nome" name="produto2" id="produto2" required></td>
+        <td>UND. Medida</td>
+        <td><input type="number" class="produto-und-medida" name="undMedida2" id="undMedida2" required></td>
+        <td>QDTDE. em Estoque</td>
+        <td><input type="text" class="produto-estoque" name="estoque2" id="estoque2" required></td>
+        <td>Valor Unitário</td>
+        <td><input type="text" class="produto-valor" name="valor2" id="valor2" required></td>
+        <td class="valor-total">0</td>
+        <td><button type="button" class="calcular-valor-total">Calcular Valor Total</button></td>
+        <td><span class="remover-produto" onclick="removerProduto(this)">🗑️</span></td>
+    </tr>
+</table>
 
-        <!-- Botões -->
         <button type="button" class="adicionar-produto">Adicionar Produto</button>
         
         <!-- Terceira tabela (Anexos) -->
@@ -138,10 +140,10 @@
                 <td><button type="button" onclick="excluirDocumento(2)">Excluir</button></td>
                 <td><button type="button" onclick="visualizarDocumento(2)">Visualizar</button></td>
             </tr>
-            <button type="button" class="adicionar-anexo">Adicionar Anexo</button>
         </table>
     </div>
 <footer>
+    <button type="button" class="adicionar-anexo">Adicionar Anexo</button>
     <button type="button" class="enviar-dados">Salvar Fornecedor</button>
 </footer>
 
