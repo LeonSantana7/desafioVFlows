@@ -13,8 +13,9 @@ Com o o seu GIT, devidamente instalado. Realize os seguintes passos:
 
 Abra o VScode e crie um diretório para colocar o projeto. Inicie um novo terminal e cole:
 
+```
 git clone git@github.com:LeonSantana7/desafioVFlows.git
-
+```
 ## 🛠️ Construído com
 
 * HTML <img align="center" height="30" width="40" alt="html-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
